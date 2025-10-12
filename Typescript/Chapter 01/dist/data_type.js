@@ -15,6 +15,8 @@ var y = null;
 var a;
 a = 123;
 a = "Farsi";
-// Array
+// array
 var friends = ["Alex", "Michael"];
 var eligibleRollList = [122, 123];
+// tuple
+var personalInfo = ["Farsi", 1, true];
