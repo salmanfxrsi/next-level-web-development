@@ -248,7 +248,7 @@ console.log(
 
 const getDisplayName = (name: string | null | undefined): string => {
   return name ?? "Anonymous";
-}
+};
 
 console.log(getDisplayName(null));
 
@@ -260,6 +260,12 @@ console.log(getDisplayName(null));
 // Write a function processData(data: unknown) that:
 // Checks if data is a string and returns the uppercased version.
 // If data is a number, returns the square of it.
+
+const processData = (data: unknown): string | number => {
+  if (typeof data === "string") return data.toUpperCase();
+  else if (typeof data === "number") return data * data;
+  else return "unsupported type";
+};
 
 // Task 12: Never Type
 // Objective: Use the never type for functions that don’t return.
