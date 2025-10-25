@@ -127,6 +127,30 @@ console.log(person);
 // A type that is a union of Book and Magazine.
 // A type that is an intersection of Book and Magazine.
 
+// Solution:
+
+interface Book {
+  name: string;
+  price: number;
+  authorName: string;
+}
+
+interface Magazine {
+  name: string;
+  topic: string;
+  price: number;
+}
+
+type UnionBookMagazine = Book | Magazine;
+type IntersectionBookMagazine = Book & Magazine;
+
+const BookMagazine: IntersectionBookMagazine = {
+  name: "book one",
+  price: 563,
+  authorName: "hey",
+  topic: "hello world",
+};
+
 // Task 5: Function Type
 // Objective: Write a function that reverses a string.
 
@@ -138,6 +162,14 @@ console.log(person);
 // Example:
 // Input: "hello"
 // Output: "olleh"
+
+// Solution:
+
+const reverseString = (value: string): string => {
+  return value.split("").reverse().join("");
+};
+
+console.log(reverseString("hello"))
 
 // Task 6: Spread and Rest Operators, Destructuring
 // Objective: Write a function that uses the rest operator for variable-length arguments.
@@ -224,6 +256,23 @@ console.log(person);
 
 // Write a function isString(value: unknown): value is string that checks if a value is a string.
 // Use this in another function printUpperCase(value: unknown): void that prints the value in uppercase if it’s a string.
+
+// Solution:
+
+const isString = (value: unknown): boolean => {
+  if (typeof value === "string") return true;
+  else return false;
+};
+
+const printUpperCase = (value: unknown): void => {
+  if (isString(value) === true) {
+    const valueToUpperCase = (value as string).toUpperCase;
+    console.log(valueToUpperCase);
+  }
+};
+
+printUpperCase("farsi");
+
 // Task 16: Utility Types and Keyof Constraints
 // Objective: Access object properties dynamically using keyof.
 
