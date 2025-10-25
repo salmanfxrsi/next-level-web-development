@@ -244,6 +244,14 @@ console.log(
 
 // Write a function getDisplayName(name: string | null | undefined): string that returns "Anonymous" if name is null or undefined.
 
+// Solution:
+
+const getDisplayName = (name: string | null | undefined): string => {
+  return name ?? "Anonymous";
+}
+
+console.log(getDisplayName(null));
+
 // Task 11: Unknown Type
 // Objective: Handle different types with the unknown type.
 
