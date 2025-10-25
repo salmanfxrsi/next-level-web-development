@@ -45,6 +45,78 @@ takeUserDetails("Farsi", 18, "admin");
 
 // Define a Person type alias with properties for Name, Address, Hair and Eye Color, Income and Expense, Hobbies, Family Members, Job, Skills, Marital Status, and Friends.
 
+// Solution:
+
+type MaritalStatus = "single" | "married" | "divorced";
+type HairColor = "black" | "brown" | "blonde" | "gray" | "other";
+type EyeColor = "brown" | "blue" | "green" | "gray" | "other";
+
+type Address = {
+  street: string;
+  city: string;
+  country: string;
+};
+
+type FamilyMember = {
+  name: string;
+  relation: string;
+};
+
+type Job = {
+  title: string;
+  company: string;
+  salary: number;
+};
+
+type Skill = {
+  name: string;
+  level: "beginner" | "intermediate" | "advanced";
+};
+
+type Person = {
+  name: string;
+  address: Address;
+  hairColor: HairColor;
+  eyeColor: EyeColor;
+  income: number;
+  expense: number;
+  hobbies: string[];
+  familyMembers: FamilyMember[];
+  job: Job;
+  skills: Skill[];
+  maritalStatus: MaritalStatus;
+  friends: string[];
+};
+
+const person: Person = {
+  name: "Farsi",
+  address: {
+    street: "27",
+    city: "Dhaka",
+    country: "Bangladesh",
+  },
+  hairColor: "black",
+  eyeColor: "brown",
+  income: 100000,
+  expense: 40000,
+  hobbies: ["coding", "cricket", "traveling"],
+  familyMembers: [{ name: "Ahmed", relation: "Brother" }],
+  job: {
+    title: "Full Stack Developer",
+    company: "Digital Resolution",
+    salary: 120000,
+  },
+  skills: [
+    { name: "React", level: "advanced" },
+    { name: "Node.js", level: "intermediate" },
+    { name: "TypeScript", level: "advanced" },
+  ],
+  maritalStatus: "single",
+  friends: ["Alex", "James", "Tom"],
+};
+
+console.log(person);
+
 // Task 4: Union and Intersection Types
 // Objective: Create union and intersection types using interfaces.
 
