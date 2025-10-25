@@ -15,7 +15,7 @@ const welcomeMessage = (): void => {
   console.log(message);
 };
 
-welcomeMessage();
+// welcomeMessage();
 
 // Task 2: Functions, Optional, and Literal Types
 // Objective: Create a function with parameters and an optional literal type.
@@ -36,7 +36,7 @@ const takeUserDetails = (name: string, age: number, role?: Role) => {
   console.log(`User is ${name}, Age is ${age} and Role is ${role}`);
 };
 
-takeUserDetails("Farsi", 18, "admin");
+// takeUserDetails("Farsi", 18, "admin");
 
 // Task 3: Object Types, Type Alias, & Literal Types
 // Objective: Define a structured Person object using Type Aliases.
@@ -115,7 +115,7 @@ const person: Person = {
   friends: ["Alex", "James", "Tom"],
 };
 
-console.log(person);
+// console.log(person);
 
 // Task 4: Union and Intersection Types
 // Objective: Create union and intersection types using interfaces.
@@ -169,7 +169,7 @@ const reverseString = (value: string): string => {
   return value.split("").reverse().join("");
 };
 
-console.log(reverseString("hello"));
+// console.log(reverseString("hello"));
 
 // Task 6: Spread and Rest Operators, Destructuring
 // Objective: Write a function that uses the rest operator for variable-length arguments.
@@ -195,7 +195,7 @@ const taskSeven = (value: string | number): number => {
   else return value * value;
 };
 
-console.log(taskSeven("typescript"), taskSeven(7));
+// console.log(taskSeven("typescript"), taskSeven(7));
 
 // Task 8: Intersection Types
 // Objective: Practice using intersection types.
@@ -222,13 +222,13 @@ const describeAdmin = (user: AdminUser): string => {
   return `The name of admin is ${user.name} and email is ${user.email} : Admin level ${user.adminLevel}`;
 };
 
-console.log(
-  describeAdmin({
-    name: "Farsi",
-    adminLevel: 1,
-    email: "salmanfarsi9005@gmail.com",
-  })
-);
+const user = {
+  name: "Farsi",
+  adminLevel: 1,
+  email: "salmanfarsi9005@gmail.com",
+};
+
+// console.log(describeAdmin(user));
 
 // Task 9: Optional Chaining
 // Objective: Use optional chaining with nested objects.
@@ -250,7 +250,7 @@ const getDisplayName = (name: string | null | undefined): string => {
   return name ?? "Anonymous";
 };
 
-console.log(getDisplayName(null));
+// console.log(getDisplayName(null));
 
 // Task 11: Unknown Type
 // Objective: Handle different types with the unknown type.
@@ -276,6 +276,14 @@ const processData = (data: unknown): string | number => {
 // Accepts a message: string.
 // Throws an error with the given message.
 // Use the never return type to indicate that this function never returns.
+
+// Solution:
+
+const handleError = (message: string): never => {
+  throw new Error(message);
+};
+
+// handleError("something went wrong!");
 
 // Task 13: Generics with Functions and Interfaces
 // Objective: Use generics to handle different types.
@@ -305,19 +313,16 @@ const processData = (data: unknown): string | number => {
 
 // Solution:
 
-const isString = (value: unknown): boolean => {
-  if (typeof value === "string") return true;
-  else return false;
+const isString = (value: unknown): value is string => {
+  return typeof value === "string";
 };
 
 const printUpperCase = (value: unknown): void => {
-  if (isString(value) === true) {
-    const valueToUpperCase = (value as string).toUpperCase;
-    console.log(valueToUpperCase);
-  }
+  if (isString(value)) console.log(value.toUpperCase());
 };
 
-printUpperCase("farsi");
+// printUpperCase("farsi");
+
 
 // Task 16: Utility Types and Keyof Constraints
 // Objective: Access object properties dynamically using keyof.
