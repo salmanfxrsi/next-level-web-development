@@ -207,6 +207,29 @@ console.log(taskSeven("typescript"), taskSeven(7));
 // Admin with property adminLevel
 // Write a function describeAdmin(user: AdminUser): string that returns a description of the admin user.
 
+type User = {
+  name: string;
+  email: string;
+};
+
+type Admin = {
+  adminLevel: number;
+};
+
+type AdminUser = Admin & User;
+
+const describeAdmin = (user: AdminUser): string => {
+  return `The name of admin is ${user.name} and email is ${user.email} : Admin level ${user.adminLevel}`;
+};
+
+console.log(
+  describeAdmin({
+    name: "Farsi",
+    adminLevel: 1,
+    email: "salmanfarsi9005@gmail.com",
+  })
+);
+
 // Task 9: Optional Chaining
 // Objective: Use optional chaining with nested objects.
 
