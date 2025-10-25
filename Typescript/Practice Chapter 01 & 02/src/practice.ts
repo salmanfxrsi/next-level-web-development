@@ -169,7 +169,7 @@ const reverseString = (value: string): string => {
   return value.split("").reverse().join("");
 };
 
-console.log(reverseString("hello"))
+console.log(reverseString("hello"));
 
 // Task 6: Spread and Rest Operators, Destructuring
 // Objective: Write a function that uses the rest operator for variable-length arguments.
@@ -187,6 +187,15 @@ console.log(reverseString("hello"))
 // The function should:
 // Return the length if the input is a string.
 // Return the square if the input is a number.
+
+// Solution:
+
+const taskSeven = (value: string | number): number => {
+  if (typeof value === "string") return value.length;
+  else return value * value;
+};
+
+console.log(taskSeven("typescript"), taskSeven(7));
 
 // Task 8: Intersection Types
 // Objective: Practice using intersection types.
