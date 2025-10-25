@@ -178,6 +178,17 @@ const reverseString = (value: string): string => {
 
 // Create a function that takes multiple numeric arguments (using the rest operator) and returns the sum of all arguments.
 
+// Solution:
+
+const sumOfNumber = (...num: number[]): number => {
+  return num.reduce(
+    (previous: number, current: number): number => previous + current,
+    0
+  );
+};
+
+console.log(sumOfNumber(10, 20, 30));
+
 // Task 7: Type Assertion and Narrowing
 // Objective: Write a function that behaves differently based on the input type.
 
@@ -322,7 +333,6 @@ const printUpperCase = (value: unknown): void => {
 };
 
 // printUpperCase("farsi");
-
 
 // Task 16: Utility Types and Keyof Constraints
 // Objective: Access object properties dynamically using keyof.
