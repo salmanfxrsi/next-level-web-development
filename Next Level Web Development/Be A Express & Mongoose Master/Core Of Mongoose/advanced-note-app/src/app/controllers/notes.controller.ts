@@ -58,7 +58,3 @@ app.delete("/notes/noteId", async (req: Request, res: Response) => {
     note,
   });
 });
-
-app.get("/", (req: Request, res: Response) => {
-  res.send("advanced note app server is running...");
-});
