@@ -12,6 +12,7 @@ const CreateUserZodSchema = z.object({
   email: z.string(),
   password: z.string(),
   role: z.string().optional(),
+  address: {},
 });
 
 app.get("/users", async (req: Request, res: Response) => {
@@ -37,8 +38,9 @@ app.get("/users/:userId", async (req: Request, res: Response) => {
 
 app.post("/users/create-user", async (req: Request, res: Response) => {
   try {
-    const body = await CreateUserZodSchema.parseAsync(req.body);
+    // const zodBody = await CreateUserZodSchema.parseAsync(req.body);
 
+    const body = req.body;
     const user = await User.create(body);
 
     res.status(201).json({
