@@ -1,3 +1,5 @@
+import { Types } from "mongoose";
+
 export interface INote {
   title: string;
   content?: string;
@@ -5,6 +7,7 @@ export interface INote {
   pinned: boolean;
   tags: {
     label: string;
-    color?: string;
+    color: string;
   };
+  userId: Types.ObjectId;
 }

@@ -1,4 +1,4 @@
-import { model, Schema } from "mongoose";
+import { model, Schema, Types } from "mongoose";
 import { INote } from "../interfaces/notes.interface";
 
 const noteSchema = new Schema<INote>(
@@ -15,8 +15,13 @@ const noteSchema = new Schema<INote>(
       label: { type: String, required: true },
       color: { type: String, default: "gray" },
     },
+    userId: {
+      type: Types.ObjectId,
+      ref: "User",
+      required: true,
+    },
   },
-  { versionKey: false, timestamps: true }
+  { versionKey: false, timestamps: true },
 );
 
 export const Note = model("Note", noteSchema);

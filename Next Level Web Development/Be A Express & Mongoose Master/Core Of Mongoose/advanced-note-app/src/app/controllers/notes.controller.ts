@@ -4,8 +4,8 @@ import app from "../../app";
 
 export const notesRoutes = express.Router();
 
-app.get("/notes", async (req: Request, res: Response) => {
-  const notes = await Note.find();
+app.get("/", async (req: Request, res: Response) => {
+  const notes = await Note.find().populate("userId");
 
   res.status(201).json({
     success: true,
@@ -14,7 +14,7 @@ app.get("/notes", async (req: Request, res: Response) => {
   });
 });
 
-app.get("/notes/:noteId", async (req: Request, res: Response) => {
+app.get("/:noteId", async (req: Request, res: Response) => {
   const noteId = req.params.noteId;
   const notes = await Note.findById(noteId);
 
@@ -25,7 +25,7 @@ app.get("/notes/:noteId", async (req: Request, res: Response) => {
   });
 });
 
-app.post("/notes/create-note", async (req: Request, res: Response) => {
+app.post("/create-note", async (req: Request, res: Response) => {
   const body = req.body;
   const note = await Note.create(body);
 
@@ -36,7 +36,7 @@ app.post("/notes/create-note", async (req: Request, res: Response) => {
   });
 });
 
-app.patch("/notes/noteId", async (req: Request, res: Response) => {
+app.patch("/:noteId", async (req: Request, res: Response) => {
   const noteId = req.params.noteId;
   const updatedBody = req.body;
   const note = await Note.findByIdAndUpdate(noteId, updatedBody, { new: true });
@@ -48,7 +48,7 @@ app.patch("/notes/noteId", async (req: Request, res: Response) => {
   });
 });
 
-app.delete("/notes/noteId", async (req: Request, res: Response) => {
+app.delete("/:noteId", async (req: Request, res: Response) => {
   const noteId = req.params.noteId;
   const note = await Note.findByIdAndDelete(noteId);
 

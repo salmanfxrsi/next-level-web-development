@@ -15,7 +15,7 @@ const CreateUserZodSchema = z.object({
   address: {},
 });
 
-app.get("/users", async (req: Request, res: Response) => {
+app.get("/", async (req: Request, res: Response) => {
   const notes = await User.find();
 
   res.status(201).json({
@@ -25,7 +25,7 @@ app.get("/users", async (req: Request, res: Response) => {
   });
 });
 
-app.get("/users/:userId", async (req: Request, res: Response) => {
+app.get("/:userId", async (req: Request, res: Response) => {
   const userId = req.params.userId;
   const users = await User.findById(userId);
 
@@ -36,7 +36,7 @@ app.get("/users/:userId", async (req: Request, res: Response) => {
   });
 });
 
-app.post("/users/create-user", async (req: Request, res: Response) => {
+app.post("/create-user", async (req: Request, res: Response) => {
   try {
     // const zodBody = await CreateUserZodSchema.parseAsync(req.body);
 
@@ -57,7 +57,7 @@ app.post("/users/create-user", async (req: Request, res: Response) => {
   }
 });
 
-app.patch("/users/userId", async (req: Request, res: Response) => {
+app.patch("/:userId", async (req: Request, res: Response) => {
   const userId = req.params.userId;
   const updatedBody = req.body;
   const user = await User.findByIdAndUpdate(userId, updatedBody, { new: true });
@@ -69,7 +69,7 @@ app.patch("/users/userId", async (req: Request, res: Response) => {
   });
 });
 
-app.delete("/users/userId", async (req: Request, res: Response) => {
+app.delete("/:userId", async (req: Request, res: Response) => {
   const userId = req.params.noteId;
   const user = await User.findByIdAndDelete(userId);
 
